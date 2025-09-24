@@ -1,0 +1,48 @@
+---
+layout: layouts/base.njk
+title: Contact
+permalink: "/contact/"
+---
+<section class="wrap contact-page">
+  <header class="contact-header">
+    <h1>Get in Touch</h1>
+    <p class="lead">Email me directly or use the form — I’ll get back to you as soon as I can.</p>
+  </header>
+
+  <div class="contact-info">
+    <p class="contact-line">
+      <strong>Email:</strong>
+      <a href="mailto:john@example.com">john@example.com</a>
+    </p>
+
+    <p class="contact-line">
+      <strong>Instagram:</strong>
+      <a href="https://instagram.com/yourusername" target="_blank" rel="noopener" class="ig-link">
+        <img src="/assets/img/instagram.jpg" alt="Instagram" width="24" height="24" class="icon">
+        <span>@yourusername</span>
+      </a>
+    </p>
+  </div>
+
+  <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="contact-form">
+    <input type="hidden" name="form-name" value="contact">
+    <p class="hidden"><label>Don’t fill this out: <input name="bot-field"></label></p>
+
+    <label class="field">
+      <span>Your Name</span>
+      <input type="text" name="name" required>
+    </label>
+
+    <label class="field">
+      <span>Your Email</span>
+      <input type="email" name="email" required>
+    </label>
+
+    <label class="field">
+      <span>Message</span>
+      <textarea name="message" rows="6" required></textarea>
+    </label>
+
+    <button type="submit" class="btn primary">Send</button>
+  </form>
+</section>

@@ -1,0 +1,35 @@
+{% extends "layouts/base.njk" %}
+{% block content %}
+
+<section class="hero">
+  <div class="wrap">
+    <h1>{{ site.title }}</h1>
+    <p>{{ site.description }}</p>
+  </div>
+</section>
+
+<section class="gallery">
+  <div class="wrap">
+    <h2>Gallery</h2>
+    <div class="grid">
+      {% for item in collections.artworks %}
+        <a class="card" href="{{ item.url }}">
+          <div class="thumb">
+            {% if item.data.image %}
+              {% set alt = item.data.title or 'Artwork' %}
+              {% cimg item.data.image, alt, "(min-width: 900px) 25vw, 50vw" %}
+            {% else %}
+              <div class="placeholder"></div>
+            {% endif %}
+          </div>
+          <div class="meta">
+            <h3>{{ item.data.title }}</h3>
+            {% if item.data.year %}<p class="sub">{{ item.data.year }}</p>{% endif %}
+          </div>
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% endblock %}

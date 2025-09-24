@@ -1,0 +1,90 @@
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a href="/" class="logo">John’s Portfolio</a>
+    <nav class="nav">
+      <a href="/">Home</a>
+      <a href="/gallery/">Gallery</a>
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  // Logo pulse animation
+  const logo = document.querySelector('.logo');
+  if (logo) {
+    logo.addEventListener('mouseenter', () => {
+      logo.style.animation = 'pulse 0.5s ease-in-out';
+    });
+    logo.addEventListener('animationend', () => {
+      logo.style.animation = '';
+    });
+  }
+
+  // Add scroll shadow to header
+  window.addEventListener('scroll', () => {
+    const header = document.querySelector('.site-header');
+    if (header) {
+      header.style.boxShadow = window.scrollY > 0
+        ? '0 2px 6px rgba(0,0,0,0.25)'
+        : 'none';
+    }
+  });
+</script>
+
+<style>
+/* ===== Header Styling ===== */
+.site-header {
+  background: var(--card);
+  padding: 1rem 0 1.2rem;
+  text-align: center;
+  transition: box-shadow 0.3s ease;
+}
+
+.logo {
+  display: block;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 0.8rem;
+  text-decoration: none;
+  animation: none;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+}
+
+.nav {
+  display: inline-flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.nav a {
+  padding: 8px 16px;
+  border-radius: 999px; /* pill shape */
+  font-weight: 500;
+  color: var(--text);
+  text-decoration: none;
+  background: transparent;
+  border: 1px solid transparent;
+  transition: all 0.25s ease;
+}
+
+.nav a:hover,
+.nav a:focus {
+  background: var(--accent);
+  color: #0f1115; /* dark text on accent */
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.nav a:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(110, 231, 183, 0.6);
+}
+</style>

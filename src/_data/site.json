@@ -1,0 +1,12 @@
+{
+  "title": "John Portfolio",
+  "url": "https://johnportfolio.art",
+  "author": {
+    "name": "John M ",
+    "email": "artist@johnportfolio.art"
+  },
+  "description": "Hand-drawn portraits & illustrations by John Doe.",
+  "social": {
+    "instagram": "https://instagram.com/yourhandle"
+  }
+}

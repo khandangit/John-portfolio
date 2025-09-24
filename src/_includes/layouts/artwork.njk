@@ -1,0 +1,27 @@
+<article class="artwork">
+  <div class="wrap">
+    <a class="back" href="/gallery/">← Back to Gallery</a>
+
+    <h1>{{ title }}</h1>
+
+    <ul class="facts">
+      {% if year %}<li><strong>Year:</strong> {{ year }}</li>{% endif %}
+      {% if medium %}<li><strong>Medium:</strong> {{ medium }}</li>{% endif %}
+      {% if size %}<li><strong>Size:</strong> {{ size }}</li>{% endif %}
+      {% if tags %}<li><strong>Tags:</strong> {{ tags | join(", ") }}</li>{% endif %}
+      {% if price %}<li><strong>Price:</strong> {{ price }}</li>{% endif %}
+    </ul>
+
+    {% if image %}
+      <div class="artwork-image" style="margin:1rem 0;">
+        <img src="{{ image }}" alt="{{ title }}" style="max-width:100%;height:auto;border-radius:12px;display:block;">
+      </div>
+    {% endif %}
+
+    {% if description %}
+      <div class="content">
+        {{ description | safe }}
+      </div>
+    {% endif %}
+  </div>
+</article>

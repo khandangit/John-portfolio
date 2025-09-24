@@ -1,0 +1,141 @@
+<header class="site-header">
+  <div class="wrap">
+    <a href="/" class="logo">Your Logo</a>
+    <nav class="nav">
+      <a href="/" class="nav-link">Home</a>
+      <a href="/gallery/" class="nav-link">Gallery</a>
+      <a href="/about/" class="nav-link">About</a>
+      <a href="/contact/" class="nav-link">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<style>
+  :root {
+    --primary-color: #007bff; /* Blue for buttons and logo */
+    --accent-color: #28a745; /* Green for hover states */
+    --text-color: #333; /* Default text */
+    --background-color: #fff; /* Header background */
+  }
+
+  .site-header {
+    background: var(--background-color);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    transition: box-shadow 0.3s ease;
+  }
+
+  .wrap {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Right-aligns nav by default */
+  }
+
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    text-decoration: none;
+    animation: none;
+  }
+
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+  }
+
+  .nav {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .nav-link {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-color);
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease;
+  }
+
+  .nav-link:hover,
+  .nav-link:focus {
+    background: var(--primary-color);
+    color: white;
+    transform: translateY(-2px);
+  }
+
+  .nav-link:focus {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 600px) {
+    .wrap {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .nav {
+      flex-wrap: wrap;
+      justify-content: flex-start;
+    }
+
+    .nav-link {
+      padding: 0.4rem 0.8rem;
+    }
+  }
+
+  /* Alternative Alignments (Uncomment one to test) */
+  /* Center-aligned nav */
+  /*
+  .wrap {
+    justify-content: center;
+    position: relative;
+  }
+  .nav {
+    justify-content: center;
+  }
+  .logo {
+    position: absolute;
+    left: 1rem;
+  }
+  */
+
+  /* Left-aligned nav */
+  /*
+  .wrap {
+    justify-content: flex-start;
+    gap: 1rem;
+  }
+  .nav {
+    justify-content: flex-start;
+  }
+  */
+</style>
+
+<script>
+  // Logo pulse animation
+  const logo = document.querySelector('.logo');
+  logo.addEventListener('mouseenter', () => {
+    logo.style.animation = 'pulse 0.5s ease-in-out';
+  });
+  logo.addEventListener('animationend', () => {
+    logo.style.animation = '';
+  });
+
+  // Add scroll shadow to header
+  window.addEventListener('scroll', () => {
+    const header = document.querySelector('.site-header');
+    header.style.boxShadow = window.scrollY > 0 ? '0 2px 4px rgba(0,0,0,0.3)' : 'none';
+  });
+</script>

@@ -1,0 +1,80 @@
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; <span id="currentYear">{{ currentYear }}</span> {{ site.author.name }} — All rights Not reserved.</p>
+    <div class="socials">
+      <a href="https://instagram.com/yourusername" target="_blank" rel="noopener" aria-label="Instagram">
+        <img src="/assets/img/instagram.jpg" alt="Instagram" class="social-icon">
+      </a>
+      <a href="https://twitter.com/yourusername" target="_blank" rel="noopener" aria-label="Twitter">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+          <path fill="var(--text)" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.657l-5.007-6.575-5.73 6.575h-3.31l7.827-8.96-8.265-10.54h6.823l4.53 5.977 5.706-5.977zm-1.138 17.52h1.837l-11.82-15.665h-1.837l11.82 15.665z"/>
+        </svg>
+      </a>
+    </div>
+    <button class="btn back-to-top" aria-label="Back to top">↑</button>
+  </div>
+</footer>
+
+<script>
+  // Dynamic copyright year
+  document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+  // Back-to-top button visibility
+  const backToTop = document.querySelector('.back-to-top');
+  window.addEventListener('scroll', () => {
+    backToTop.style.display = window.scrollY > 300 ? 'block' : 'none';
+  });
+  backToTop.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // Footer fade-in on viewport entry
+  const footer = document.querySelector('.site-footer');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        footer.style.animation = 'fadeIn 1s ease-in-out';
+      }
+    });
+  }, { threshold: 0.1 });
+  observer.observe(footer);
+</script>
+
+<style>
+  .site-footer .socials {
+    display: flex;
+    gap: 8px;
+  }
+  .site-footer .socials a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: var(--card);
+    border-radius: 50%;
+    transition: background 0.3s ease, transform 0.3s ease;
+  }
+  .site-footer .socials a:hover {
+    background: var(--accent);
+    transform: rotate(10deg);
+  }
+  .site-footer .socials svg,
+  .site-footer .socials img.social-icon {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+  }
+  .back-to-top {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 15px;
+    font-size: 1.2rem;
+  }
+  @keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+</style>

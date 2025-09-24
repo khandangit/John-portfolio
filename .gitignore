@@ -1,0 +1,15 @@
+# build + cache
+_site/
+.cache/
+dist/
+
+# deps
+node_modules/
+
+# logs & env
+*.log
+.env
+
+# OS junk
+.DS_Store
+Thumbs.db
